@@ -1,0 +1,5 @@
+rootProject.name = 'sendiy'
+include 'adapter'
+include 'application'
+include 'domain'
+

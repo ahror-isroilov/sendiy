@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: sendiy
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sendiy
+    username: sendiy
+    password: HG3Uzm9f
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8808
