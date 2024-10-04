@@ -18,7 +18,7 @@ public class UserDomain {
     private String lastname;
     private String passwordHash;
     private String phone;
-    private UUID roleId;
+    private Long roleId;
     private UUID avatarId;
     private String bio;
     private UserStatus status;

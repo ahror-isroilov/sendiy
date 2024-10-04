@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    open-in-view: off
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:sendiy}
+    username: ${DB_USERNAME:sendiy}
+    password: ${DB_PASSWORD:HG3Uzm9f}
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+db:
+  name: ${DB_NAME:sendiy}
