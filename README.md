@@ -12,6 +12,7 @@ This project follows **Hexagonal Architecture (Ports & Adapters)** using **Sprin
 - **Spring Boot**
 - **Gradle** (multi-module)
 - **PostgreSQL** (ERD included)
+- **JOOQ**
 - **Flyway** for schema versioning
 - **Hexagonal Architecture**
 
