@@ -63,7 +63,7 @@ public class Categories extends TableImpl<CategoriesRecord> {
     /**
      * The column <code>public.categories.id</code>.
      */
-    public final TableField<CategoriesRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
+    public final TableField<CategoriesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>public.categories.name</code>.
@@ -153,8 +153,8 @@ public class Categories extends TableImpl<CategoriesRecord> {
     }
 
     @Override
-    public Identity<CategoriesRecord, Long> getIdentity() {
-        return (Identity<CategoriesRecord, Long>) super.getIdentity();
+    public Identity<CategoriesRecord, Integer> getIdentity() {
+        return (Identity<CategoriesRecord, Integer>) super.getIdentity();
     }
 
     @Override

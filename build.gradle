@@ -4,14 +4,16 @@ plugins {
     id 'java'
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
 subprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'java'
-
-    repositories {
-        mavenCentral()
-    }
 
     dependencies {
         compileOnly 'org.projectlombok:lombok'
@@ -25,3 +27,5 @@ subprojects {
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 }
+
+bootJar.enabled=false

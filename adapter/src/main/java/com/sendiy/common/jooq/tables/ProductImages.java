@@ -7,6 +7,7 @@ package com.sendiy.common.jooq.tables;
 import com.sendiy.common.jooq.Keys;
 import com.sendiy.common.jooq.Public;
 import com.sendiy.common.jooq.tables.Files.FilesPath;
+import com.sendiy.common.jooq.tables.ProductImages.ProductImagesPath;
 import com.sendiy.common.jooq.tables.Products.ProductsPath;
 import com.sendiy.common.jooq.tables.records.ProductImagesRecord;
 
@@ -63,6 +64,16 @@ public class ProductImages extends TableImpl<ProductImagesRecord> {
      * The column <code>public.product_images.id</code>.
      */
     public final TableField<ProductImagesRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
+
+    /**
+     * The column <code>public.product_images.medium_id</code>.
+     */
+    public final TableField<ProductImagesRecord, Long> MEDIUM_ID = createField(DSL.name("medium_id"), SQLDataType.BIGINT, this, "");
+
+    /**
+     * The column <code>public.product_images.small_id</code>.
+     */
+    public final TableField<ProductImagesRecord, Long> SMALL_ID = createField(DSL.name("small_id"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>public.product_images.product_id</code>.
@@ -158,7 +169,33 @@ public class ProductImages extends TableImpl<ProductImagesRecord> {
 
     @Override
     public List<ForeignKey<ProductImagesRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_PRODUCT_ID_FKEY, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_FILE_ID_FKEY);
+        return Arrays.asList(Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_MEDIUM_ID_FKEY, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_SMALL_ID_FKEY, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_PRODUCT_ID_FKEY, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_FILE_ID_FKEY);
+    }
+
+    private transient ProductImagesPath _productImagesMediumIdFkey;
+
+    /**
+     * Get the implicit join path to the <code>public.product_images</code>
+     * table, via the <code>product_images_medium_id_fkey</code> key.
+     */
+    public ProductImagesPath productImagesMediumIdFkey() {
+        if (_productImagesMediumIdFkey == null)
+            _productImagesMediumIdFkey = new ProductImagesPath(this, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_MEDIUM_ID_FKEY, null);
+
+        return _productImagesMediumIdFkey;
+    }
+
+    private transient ProductImagesPath _productImagesSmallIdFkey;
+
+    /**
+     * Get the implicit join path to the <code>public.product_images</code>
+     * table, via the <code>product_images_small_id_fkey</code> key.
+     */
+    public ProductImagesPath productImagesSmallIdFkey() {
+        if (_productImagesSmallIdFkey == null)
+            _productImagesSmallIdFkey = new ProductImagesPath(this, Keys.PRODUCT_IMAGES__PRODUCT_IMAGES_SMALL_ID_FKEY, null);
+
+        return _productImagesSmallIdFkey;
     }
 
     private transient ProductsPath _products;

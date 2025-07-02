@@ -58,7 +58,7 @@ public class RolePermissions extends TableImpl<RolePermissionsRecord> {
     /**
      * The column <code>public.role_permissions.role_id</code>.
      */
-    public final TableField<RolePermissionsRecord, Integer> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.INTEGER, this, "");
+    public final TableField<RolePermissionsRecord, Long> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>public.role_permissions.permission</code>.

@@ -12,6 +12,7 @@ import com.sendiy.common.jooq.tables.Favorites.FavoritesPath;
 import com.sendiy.common.jooq.tables.Files.FilesPath;
 import com.sendiy.common.jooq.tables.Orders.OrdersPath;
 import com.sendiy.common.jooq.tables.Products.ProductsPath;
+import com.sendiy.common.jooq.tables.RefreshTokens.RefreshTokensPath;
 import com.sendiy.common.jooq.tables.Reviews.ReviewsPath;
 import com.sendiy.common.jooq.tables.Roles.RolesPath;
 import com.sendiy.common.jooq.tables.ShippingAddress.ShippingAddressPath;
@@ -89,6 +90,11 @@ public class Users extends TableImpl<UsersRecord> {
     public final TableField<UsersRecord, String> PHONE = createField(DSL.name("phone"), SQLDataType.VARCHAR(12), this, "");
 
     /**
+     * The column <code>public.users.email</code>.
+     */
+    public final TableField<UsersRecord, String> EMAIL = createField(DSL.name("email"), SQLDataType.VARCHAR(128), this, "");
+
+    /**
      * The column <code>public.users.password_hash</code>.
      */
     public final TableField<UsersRecord, String> PASSWORD_HASH = createField(DSL.name("password_hash"), SQLDataType.VARCHAR(255), this, "");
@@ -96,7 +102,7 @@ public class Users extends TableImpl<UsersRecord> {
     /**
      * The column <code>public.users.role_id</code>.
      */
-    public final TableField<UsersRecord, Integer> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<UsersRecord, Long> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>public.users.avatar_id</code>.
@@ -111,7 +117,7 @@ public class Users extends TableImpl<UsersRecord> {
     /**
      * The column <code>public.users.status</code>.
      */
-    public final TableField<UsersRecord, UserStatus> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR.asEnumDataType(UserStatus.class), this, "");
+    public final TableField<UsersRecord, UserStatus> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR.defaultValue(DSL.field(DSL.raw("'ACTIVE'::user_status"), SQLDataType.VARCHAR)).asEnumDataType(UserStatus.class), this, "");
 
     /**
      * The column <code>public.users.created_at</code>.
@@ -367,6 +373,19 @@ public class Users extends TableImpl<UsersRecord> {
             _productsUserIdFkey = new ProductsPath(this, null, Keys.PRODUCTS__PRODUCTS_USER_ID_FKEY.getInverseKey());
 
         return _productsUserIdFkey;
+    }
+
+    private transient RefreshTokensPath _refreshTokens;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.refresh_tokens</code> table
+     */
+    public RefreshTokensPath refreshTokens() {
+        if (_refreshTokens == null)
+            _refreshTokens = new RefreshTokensPath(this, null, Keys.REFRESH_TOKENS__REFRESH_TOKENS_USER_ID_FKEY.getInverseKey());
+
+        return _refreshTokens;
     }
 
     private transient ReviewsPath _reviewsCreatedByFkey;

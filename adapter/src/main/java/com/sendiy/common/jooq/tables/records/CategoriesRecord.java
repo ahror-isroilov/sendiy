@@ -23,15 +23,15 @@ public class CategoriesRecord extends UpdatableRecordImpl<CategoriesRecord> {
     /**
      * Setter for <code>public.categories.id</code>.
      */
-    public void setId(Long value) {
+    public void setId(Integer value) {
         set(0, value);
     }
 
     /**
      * Getter for <code>public.categories.id</code>.
      */
-    public Long getId() {
-        return (Long) get(0);
+    public Integer getId() {
+        return (Integer) get(0);
     }
 
     /**
@@ -95,7 +95,7 @@ public class CategoriesRecord extends UpdatableRecordImpl<CategoriesRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Record1<Long> key() {
+    public Record1<Integer> key() {
         return (Record1) super.key();
     }
 
@@ -113,7 +113,7 @@ public class CategoriesRecord extends UpdatableRecordImpl<CategoriesRecord> {
     /**
      * Create a detached, initialised CategoriesRecord
      */
-    public CategoriesRecord(Long id, String name, String description, Integer parentId, UUID imageId) {
+    public CategoriesRecord(Integer id, String name, String description, Integer parentId, UUID imageId) {
         super(Categories.CATEGORIES);
 
         setId(id);

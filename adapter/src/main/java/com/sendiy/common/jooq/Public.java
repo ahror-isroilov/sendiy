@@ -14,6 +14,7 @@ import com.sendiy.common.jooq.tables.OrderItems;
 import com.sendiy.common.jooq.tables.Orders;
 import com.sendiy.common.jooq.tables.ProductImages;
 import com.sendiy.common.jooq.tables.Products;
+import com.sendiy.common.jooq.tables.RefreshTokens;
 import com.sendiy.common.jooq.tables.Reviews;
 import com.sendiy.common.jooq.tables.RolePermissions;
 import com.sendiy.common.jooq.tables.Roles;
@@ -26,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.jooq.Catalog;
+import org.jooq.Sequence;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
@@ -94,6 +96,11 @@ public class Public extends SchemaImpl {
     public final Products PRODUCTS = Products.PRODUCTS;
 
     /**
+     * The table <code>public.refresh_tokens</code>.
+     */
+    public final RefreshTokens REFRESH_TOKENS = RefreshTokens.REFRESH_TOKENS;
+
+    /**
      * The table <code>public.reviews</code>.
      */
     public final Reviews REVIEWS = Reviews.REVIEWS;
@@ -142,6 +149,13 @@ public class Public extends SchemaImpl {
     }
 
     @Override
+    public final List<Sequence<?>> getSequences() {
+        return Arrays.asList(
+            Sequences.REFRESH_TOKENS_SEQ
+        );
+    }
+
+    @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
             CartItems.CART_ITEMS,
@@ -154,6 +168,7 @@ public class Public extends SchemaImpl {
             Orders.ORDERS,
             ProductImages.PRODUCT_IMAGES,
             Products.PRODUCTS,
+            RefreshTokens.REFRESH_TOKENS,
             Reviews.REVIEWS,
             RolePermissions.ROLE_PERMISSIONS,
             Roles.ROLES,

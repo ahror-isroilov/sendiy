@@ -3,5 +3,9 @@ spring:
     name: sendiy
   profiles:
     include: adapter
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
 server:
   port: 8808

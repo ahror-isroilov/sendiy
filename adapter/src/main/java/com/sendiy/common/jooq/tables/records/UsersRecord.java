@@ -79,143 +79,157 @@ public class UsersRecord extends UpdatableRecordImpl<UsersRecord> {
     }
 
     /**
+     * Setter for <code>public.users.email</code>.
+     */
+    public void setEmail(String value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>public.users.email</code>.
+     */
+    public String getEmail() {
+        return (String) get(4);
+    }
+
+    /**
      * Setter for <code>public.users.password_hash</code>.
      */
     public void setPasswordHash(String value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>public.users.password_hash</code>.
      */
     public String getPasswordHash() {
-        return (String) get(4);
+        return (String) get(5);
     }
 
     /**
      * Setter for <code>public.users.role_id</code>.
      */
-    public void setRoleId(Integer value) {
-        set(5, value);
+    public void setRoleId(Long value) {
+        set(6, value);
     }
 
     /**
      * Getter for <code>public.users.role_id</code>.
      */
-    public Integer getRoleId() {
-        return (Integer) get(5);
+    public Long getRoleId() {
+        return (Long) get(6);
     }
 
     /**
      * Setter for <code>public.users.avatar_id</code>.
      */
     public void setAvatarId(UUID value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>public.users.avatar_id</code>.
      */
     public UUID getAvatarId() {
-        return (UUID) get(6);
+        return (UUID) get(7);
     }
 
     /**
      * Setter for <code>public.users.bio</code>.
      */
     public void setBio(String value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>public.users.bio</code>.
      */
     public String getBio() {
-        return (String) get(7);
+        return (String) get(8);
     }
 
     /**
      * Setter for <code>public.users.status</code>.
      */
     public void setStatus(UserStatus value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>public.users.status</code>.
      */
     public UserStatus getStatus() {
-        return (UserStatus) get(8);
+        return (UserStatus) get(9);
     }
 
     /**
      * Setter for <code>public.users.created_at</code>.
      */
     public void setCreatedAt(LocalDateTime value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
      * Getter for <code>public.users.created_at</code>.
      */
     public LocalDateTime getCreatedAt() {
-        return (LocalDateTime) get(9);
+        return (LocalDateTime) get(10);
     }
 
     /**
      * Setter for <code>public.users.created_by</code>.
      */
     public void setCreatedBy(UUID value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
      * Getter for <code>public.users.created_by</code>.
      */
     public UUID getCreatedBy() {
-        return (UUID) get(10);
+        return (UUID) get(11);
     }
 
     /**
      * Setter for <code>public.users.modified_at</code>.
      */
     public void setModifiedAt(LocalDateTime value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
      * Getter for <code>public.users.modified_at</code>.
      */
     public LocalDateTime getModifiedAt() {
-        return (LocalDateTime) get(11);
+        return (LocalDateTime) get(12);
     }
 
     /**
      * Setter for <code>public.users.modified_by</code>.
      */
     public void setModifiedBy(UUID value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
      * Getter for <code>public.users.modified_by</code>.
      */
     public UUID getModifiedBy() {
-        return (UUID) get(12);
+        return (UUID) get(13);
     }
 
     /**
      * Setter for <code>public.users.deleted_date</code>.
      */
     public void setDeletedDate(LocalDateTime value) {
-        set(13, value);
+        set(14, value);
     }
 
     /**
      * Getter for <code>public.users.deleted_date</code>.
      */
     public LocalDateTime getDeletedDate() {
-        return (LocalDateTime) get(13);
+        return (LocalDateTime) get(14);
     }
 
     // -------------------------------------------------------------------------
@@ -241,13 +255,14 @@ public class UsersRecord extends UpdatableRecordImpl<UsersRecord> {
     /**
      * Create a detached, initialised UsersRecord
      */
-    public UsersRecord(UUID id, String firstname, String lastname, String phone, String passwordHash, Integer roleId, UUID avatarId, String bio, UserStatus status, LocalDateTime createdAt, UUID createdBy, LocalDateTime modifiedAt, UUID modifiedBy, LocalDateTime deletedDate) {
+    public UsersRecord(UUID id, String firstname, String lastname, String phone, String email, String passwordHash, Long roleId, UUID avatarId, String bio, UserStatus status, LocalDateTime createdAt, UUID createdBy, LocalDateTime modifiedAt, UUID modifiedBy, LocalDateTime deletedDate) {
         super(Users.USERS);
 
         setId(id);
         setFirstname(firstname);
         setLastname(lastname);
         setPhone(phone);
+        setEmail(email);
         setPasswordHash(passwordHash);
         setRoleId(roleId);
         setAvatarId(avatarId);

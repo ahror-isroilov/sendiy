@@ -20,15 +20,15 @@ public class RolePermissionsRecord extends TableRecordImpl<RolePermissionsRecord
     /**
      * Setter for <code>public.role_permissions.role_id</code>.
      */
-    public void setRoleId(Integer value) {
+    public void setRoleId(Long value) {
         set(0, value);
     }
 
     /**
      * Getter for <code>public.role_permissions.role_id</code>.
      */
-    public Integer getRoleId() {
-        return (Integer) get(0);
+    public Long getRoleId() {
+        return (Long) get(0);
     }
 
     /**
@@ -59,7 +59,7 @@ public class RolePermissionsRecord extends TableRecordImpl<RolePermissionsRecord
     /**
      * Create a detached, initialised RolePermissionsRecord
      */
-    public RolePermissionsRecord(Integer roleId, String permission) {
+    public RolePermissionsRecord(Long roleId, String permission) {
         super(RolePermissions.ROLE_PERMISSIONS);
 
         setRoleId(roleId);

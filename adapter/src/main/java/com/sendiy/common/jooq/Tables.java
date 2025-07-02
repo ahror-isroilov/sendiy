@@ -14,6 +14,7 @@ import com.sendiy.common.jooq.tables.OrderItems;
 import com.sendiy.common.jooq.tables.Orders;
 import com.sendiy.common.jooq.tables.ProductImages;
 import com.sendiy.common.jooq.tables.Products;
+import com.sendiy.common.jooq.tables.RefreshTokens;
 import com.sendiy.common.jooq.tables.Reviews;
 import com.sendiy.common.jooq.tables.RolePermissions;
 import com.sendiy.common.jooq.tables.Roles;
@@ -78,6 +79,11 @@ public class Tables {
      * The table <code>public.products</code>.
      */
     public static final Products PRODUCTS = Products.PRODUCTS;
+
+    /**
+     * The table <code>public.refresh_tokens</code>.
+     */
+    public static final RefreshTokens REFRESH_TOKENS = RefreshTokens.REFRESH_TOKENS;
 
     /**
      * The table <code>public.reviews</code>.

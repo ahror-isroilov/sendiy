@@ -35,45 +35,73 @@ public class ProductImagesRecord extends UpdatableRecordImpl<ProductImagesRecord
     }
 
     /**
+     * Setter for <code>public.product_images.medium_id</code>.
+     */
+    public void setMediumId(Long value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>public.product_images.medium_id</code>.
+     */
+    public Long getMediumId() {
+        return (Long) get(1);
+    }
+
+    /**
+     * Setter for <code>public.product_images.small_id</code>.
+     */
+    public void setSmallId(Long value) {
+        set(2, value);
+    }
+
+    /**
+     * Getter for <code>public.product_images.small_id</code>.
+     */
+    public Long getSmallId() {
+        return (Long) get(2);
+    }
+
+    /**
      * Setter for <code>public.product_images.product_id</code>.
      */
     public void setProductId(UUID value) {
-        set(1, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>public.product_images.product_id</code>.
      */
     public UUID getProductId() {
-        return (UUID) get(1);
+        return (UUID) get(3);
     }
 
     /**
      * Setter for <code>public.product_images.file_id</code>.
      */
     public void setFileId(UUID value) {
-        set(2, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>public.product_images.file_id</code>.
      */
     public UUID getFileId() {
-        return (UUID) get(2);
+        return (UUID) get(4);
     }
 
     /**
      * Setter for <code>public.product_images.is_primary</code>.
      */
     public void setIsPrimary(Boolean value) {
-        set(3, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>public.product_images.is_primary</code>.
      */
     public Boolean getIsPrimary() {
-        return (Boolean) get(3);
+        return (Boolean) get(5);
     }
 
     // -------------------------------------------------------------------------
@@ -99,10 +127,12 @@ public class ProductImagesRecord extends UpdatableRecordImpl<ProductImagesRecord
     /**
      * Create a detached, initialised ProductImagesRecord
      */
-    public ProductImagesRecord(Long id, UUID productId, UUID fileId, Boolean isPrimary) {
+    public ProductImagesRecord(Long id, Long mediumId, Long smallId, UUID productId, UUID fileId, Boolean isPrimary) {
         super(ProductImages.PRODUCT_IMAGES);
 
         setId(id);
+        setMediumId(mediumId);
+        setSmallId(smallId);
         setProductId(productId);
         setFileId(fileId);
         setIsPrimary(isPrimary);
